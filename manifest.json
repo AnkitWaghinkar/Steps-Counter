@@ -1,0 +1,96 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Steps Counter",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Steps Counter",
+  "start_url": "/",
+  "theme_color": "#00a8ff",
+  "icons": [
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 32,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 16,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon.ico",
+      "type": "image/x-icon",
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 192,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": true
+    },
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 512,
+      "is512x512": true,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 180,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ],
+  "id": "com.ankitgithub.stepscounter",
+  "description": "A modern step counter app to track your daily steps with progress rings and goals.",
+  "lang": "en",
+  "categories": [
+    "fitness"
+  ]
+}
