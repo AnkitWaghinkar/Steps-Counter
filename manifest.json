@@ -10,21 +10,6 @@
   "theme_color": "#00a8ff",
   "icons": [
     {
-      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon-32x32.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon-16x16.png",
-      "type": "image/png",
-      "sizes": "16x16"
-    },
-    {
-      "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/favicon.ico",
-      "type": "image/x-icon",
-      "sizes": "16x16"
-    },
-    {
       "src": "https://ankitwaghinkar.github.io/Steps-Counter/favicon_io/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
