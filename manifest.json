@@ -92,5 +92,12 @@
   "lang": "en",
   "categories": [
     "fitness"
-  ]
+  ],
+  "screenshots" : [
+  {
+    "src": "screenshot.png",
+    "sizes": "236x522",
+    "type": "image/png", 
+  }
+]
 }
