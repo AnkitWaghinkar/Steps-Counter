@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Advanced Step Counter</title>
+  <link rel="stylesheet" href="style.css"> 
+  
+  <!-- Standard Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="icon" href="favicon_io/favicon.ico">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+
+  <!-- Android Chrome Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+ 
+</head>
+<body>
+
+  <div class="card">
+    <h2>Step Counter</h2>
+
+    <!-- Settings Input for Goal -->
+    <div class="goal-setting">
+      <label for="goal-input">Target Steps:</label>
+      <input type="number" id="goal-input" value="50" min="1">
+    </div>
+
+    <!-- Circular Progress & Display / GIF Area -->
+    <div class="progress-container">
+      <svg class="progress-ring" width="180" height="180">
+        <circle class="progress-ring__bg" stroke="#C4CECE" stroke-width="12" fill="transparent" r="80" cx="90" cy="90"/>
+        
+        <defs>
+          <!-- Define the gradient -->
+          <linearGradient id="modernGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4cd137" />
+            <stop offset="100%" stop-color="#00a8ff" />
+            <stop offset="0%" stop-color="#80A4CF" />
+          </linearGradient>
+        </defs>
+
+        <!-- Apply the gradient via url(#modernGradient) -->
+        <circle class="progress-ring__circle" stroke="url(#modernGradient)" stroke-width="12" stroke-linecap="round" fill="transparent" r="80" cx="90" cy="90"/>
+      </svg>
+      
+      <div class="center-content">
+        <!-- Step count (Visible before goal is reached) -->
+        <div id="step-display-container">
+          <div id="step-count">0</div>
+          <div class="goal-text">/ <span id="goal-display">50</span></div>
+        </div>
+
+        <!-- GIF (Hidden until goal is reached) -->
+        <img id="celebration-gif" src="https://media.giphy.com/media/26u4lOMA8JKSnL9Uk/giphy.gif" alt="Goal Complete Celebration" style="display: none;">
+      </div>
+    </div>
+
+    <div class="status" id="status-text">Status: Paused</div>
+
+    <div class="btn-group">
+      <button id="toggle-btn">Start Tracking</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" integrity="sha512-oJ8QbaQThQoJZ7oEv+29jfPM6CcP+zUxh3PKJs1vyOhx0UraUrE7PQgeItu3dOuCJyrzWpoYMsVjkkPEBzbUqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
