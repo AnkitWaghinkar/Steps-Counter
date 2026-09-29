@@ -16,13 +16,18 @@ const circle = document.querySelector('.progress-ring__circle');
 const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 
-circle.style.strokeDasharray = `${circumference} ${circumference}`;
-circle.style.strokeDashoffset = circumference;
+if (circle) {
+  circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  circle.style.strokeDashoffset = circumference;
+}
 
 function setProgress(percent) {
   const offset = circumference - (percent / 100) * circumference;
-  // Animate smoothly using GSAP
-  gsap.to(circle, { strokeDashoffset: offset, duration: 0.3, ease: "power1.out" });
+  if (window.gsap) {
+    gsap.to(circle, { strokeDashoffset: offset, duration: 0.3, ease: "power1.out" });
+  } else {
+    circle.style.strokeDashoffset = offset;
+  }
 }
 
 // Update target when user changes input value
@@ -55,10 +60,14 @@ const debounceTime = 300;
 function handleMotion(event) {
   if (!isTracking) return;
 
-  const acc = event.accelerationIncludingGravity;
+  const acc = event.accelerationIncludingGravity || event.acceleration;
   if (!acc) return;
 
-  const magnitude = Math.sqrt(acc.x * acc.x + acc.y * acc.y + acc.z * acc.z);
+  const x = acc.x || 0;
+  const y = acc.y || 0;
+  const z = acc.z || 0;
+
+  const magnitude = Math.sqrt(x * x + y * y + z * z);
   const currentTime = Date.now();
 
   if (magnitude > threshold && lastMagnitude <= threshold) {
@@ -76,6 +85,7 @@ function handleMotion(event) {
 // Toggle Tracking Start/Stop
 toggleBtn.addEventListener('click', async () => {
   if (!isTracking) {
+    // Request permission for iOS 13+ devices
     if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
       try {
         const permissionState = await DeviceMotionEvent.requestPermission();
@@ -84,11 +94,13 @@ toggleBtn.addEventListener('click', async () => {
           return;
         }
       } catch (error) {
-        console.error(error);
+        console.error('Permission error:', error);
+        alert('Could not get motion permission.');
+        return;
       }
     }
 
-    window.addEventListener('devicemotion', handleMotion);
+    window.addEventListener('devicemotion', handleMotion, true);
     isTracking = true;
     toggleBtn.textContent = 'Stop';
     toggleBtn.style.backgroundColor = '#e84118';
@@ -101,7 +113,7 @@ toggleBtn.addEventListener('click', async () => {
 });
 
 function stopTracking() {
-  window.removeEventListener('devicemotion', handleMotion);
+  window.removeEventListener('devicemotion', handleMotion, true);
   isTracking = false;
   toggleBtn.textContent = 'Start Tracking';
   toggleBtn.style.backgroundColor = '#f8f8f8';
